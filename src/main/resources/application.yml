@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Sales API
+
+api-sales:
+  client:
+    product:
+      url: http://localhost:8082/products
+
+
