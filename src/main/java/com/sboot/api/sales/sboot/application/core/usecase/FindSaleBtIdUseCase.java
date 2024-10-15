@@ -1,9 +1,10 @@
 package com.sboot.api.sales.sboot.application.core.usecase;
 
 import com.sboot.api.sales.sboot.application.core.domain.Sale;
+import com.sboot.api.sales.sboot.application.ports.in.FindSaleByIdInputPort;
 import com.sboot.api.sales.sboot.application.ports.out.FindSaleByIdOutputPort;
 
-public class FindSaleBtIdUseCase {
+public class FindSaleBtIdUseCase implements FindSaleByIdInputPort {
 
     private final FindSaleByIdOutputPort findSaleByIdOutputPort;
 
@@ -11,6 +12,7 @@ public class FindSaleBtIdUseCase {
         this.findSaleByIdOutputPort = findSaleByIdOutputPort;
     }
 
+    @Override
     public Sale find(String id) {
         return findSaleByIdOutputPort.find(id).orElseThrow(
                 () -> new RuntimeException("Sale Not Found"));

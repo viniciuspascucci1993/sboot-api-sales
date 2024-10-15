@@ -2,7 +2,7 @@ package com.sboot.api.sales.sboot.application.core.domain;
 
 public class Sale {
 
-    private Long id;
+    private String id;
     private Long saleCode;
     private Product product;
 
@@ -12,18 +12,18 @@ public class Sale {
         this.isValidSale = false;
     }
 
-    public Sale(Long id, Long saleCode, Product product, boolean isValidSale) {
+    public Sale(String id, Long saleCode, Product product, boolean isValidSale) {
         this.id = id;
         this.saleCode = saleCode;
         this.product = product;
         this.isValidSale = isValidSale;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

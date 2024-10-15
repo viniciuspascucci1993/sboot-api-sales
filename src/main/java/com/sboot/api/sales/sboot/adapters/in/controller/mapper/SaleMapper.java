@@ -1,6 +1,7 @@
 package com.sboot.api.sales.sboot.adapters.in.controller.mapper;
 
 import com.sboot.api.sales.sboot.adapters.in.controller.request.SaleRequest;
+import com.sboot.api.sales.sboot.adapters.in.controller.response.SaleResponse;
 import com.sboot.api.sales.sboot.application.core.domain.Sale;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -12,4 +13,6 @@ public interface SaleMapper {
     @Mapping(target = "product", ignore = true)
     @Mapping(target = "isValidSale", ignore = true)
     Sale toSale(SaleRequest saleRequest);
+
+    SaleResponse toSaleResponse(Sale sale);
 }
