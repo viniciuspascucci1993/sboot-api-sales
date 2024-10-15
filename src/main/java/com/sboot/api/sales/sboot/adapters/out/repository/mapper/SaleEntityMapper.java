@@ -8,4 +8,6 @@ import org.mapstruct.Mapper;
 public interface SaleEntityMapper {
 
     SaleEntity toSaleEntity(Sale sale);
+
+    Sale toSale(SaleEntity saleEntity);
 }
