@@ -4,11 +4,11 @@ import com.sboot.api.sales.sboot.application.core.domain.Sale;
 import com.sboot.api.sales.sboot.application.ports.in.FindSaleByIdInputPort;
 import com.sboot.api.sales.sboot.application.ports.out.FindSaleByIdOutputPort;
 
-public class FindSaleBtIdUseCase implements FindSaleByIdInputPort {
+public class FindSaleByIdUseCase implements FindSaleByIdInputPort {
 
     private final FindSaleByIdOutputPort findSaleByIdOutputPort;
 
-    public FindSaleBtIdUseCase(FindSaleByIdOutputPort findSaleByIdOutputPort) {
+    public FindSaleByIdUseCase(FindSaleByIdOutputPort findSaleByIdOutputPort) {
         this.findSaleByIdOutputPort = findSaleByIdOutputPort;
     }
 
