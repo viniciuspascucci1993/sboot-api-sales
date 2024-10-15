@@ -8,7 +8,7 @@ import lombok.Data;
 public class SaleRequest {
 
     @NotNull
-    private Long salesCode;
+    private String salesCode;
     @NotBlank
     private String ownerName;
     @NotBlank

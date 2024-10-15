@@ -3,8 +3,10 @@ package com.sboot.api.sales.sboot.adapters.in.controller;
 import com.sboot.api.sales.sboot.adapters.in.controller.mapper.SaleMapper;
 import com.sboot.api.sales.sboot.adapters.in.controller.request.SaleRequest;
 import com.sboot.api.sales.sboot.adapters.in.controller.response.SaleResponse;
+import com.sboot.api.sales.sboot.application.core.domain.Sale;
 import com.sboot.api.sales.sboot.application.ports.in.FindSaleByIdInputPort;
 import com.sboot.api.sales.sboot.application.ports.in.InsertSaleInputPort;
+import com.sboot.api.sales.sboot.application.ports.in.UpdateSaleInputPort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class SaleController {
     private FindSaleByIdInputPort findSaleByIdInputPort;
 
     @Autowired
+    private UpdateSaleInputPort updateSaleInputPort;
+
+    @Autowired
     private SaleMapper saleMapper;
 
     @PostMapping
@@ -35,6 +40,13 @@ public class SaleController {
         var sale = findSaleByIdInputPort.find(id);
         var saleResponse = saleMapper.toSaleResponse(sale);
         return ResponseEntity.ok().body(saleResponse);
+    }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable final String id, @Valid @RequestBody SaleRequest saleRequest ) {
+        Sale sale = saleMapper.toSale(saleRequest);
+        sale.setId(id);
+        updateSaleInputPort.update(sale,  saleRequest.getSalesCode());
+        return ResponseEntity.noContent().build();
     }
 }
