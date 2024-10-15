@@ -4,6 +4,7 @@ import com.sboot.api.sales.sboot.adapters.in.controller.mapper.SaleMapper;
 import com.sboot.api.sales.sboot.adapters.in.controller.request.SaleRequest;
 import com.sboot.api.sales.sboot.adapters.in.controller.response.SaleResponse;
 import com.sboot.api.sales.sboot.application.core.domain.Sale;
+import com.sboot.api.sales.sboot.application.ports.in.DeleteSaleByIdInputPort;
 import com.sboot.api.sales.sboot.application.ports.in.FindSaleByIdInputPort;
 import com.sboot.api.sales.sboot.application.ports.in.InsertSaleInputPort;
 import com.sboot.api.sales.sboot.application.ports.in.UpdateSaleInputPort;
@@ -24,6 +25,9 @@ public class SaleController {
 
     @Autowired
     private UpdateSaleInputPort updateSaleInputPort;
+
+    @Autowired
+    private DeleteSaleByIdInputPort deleteSaleByIdInputPort;
 
     @Autowired
     private SaleMapper saleMapper;
@@ -47,6 +51,12 @@ public class SaleController {
         Sale sale = saleMapper.toSale(saleRequest);
         sale.setId(id);
         updateSaleInputPort.update(sale,  saleRequest.getSalesCode());
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        deleteSaleByIdInputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
