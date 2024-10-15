@@ -3,7 +3,7 @@ package com.sboot.api.sales.sboot.application.core.domain;
 public class Sale {
 
     private String id;
-    private Long saleCode;
+    private String saleCode;
     private Product product;
 
     private boolean isValidSale;
@@ -12,7 +12,7 @@ public class Sale {
         this.isValidSale = false;
     }
 
-    public Sale(String id, Long saleCode, Product product, boolean isValidSale) {
+    public Sale(String id, String saleCode, Product product, boolean isValidSale) {
         this.id = id;
         this.saleCode = saleCode;
         this.product = product;
@@ -27,11 +27,11 @@ public class Sale {
         this.id = id;
     }
 
-    public Long getSaleCode() {
+    public String getSaleCode() {
         return saleCode;
     }
 
-    public void setSaleCode(Long saleCode) {
+    public void setSaleCode(String saleCode) {
         this.saleCode = saleCode;
     }
 
