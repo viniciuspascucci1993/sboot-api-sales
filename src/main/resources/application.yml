@@ -3,7 +3,12 @@ spring:
     name: Sales API
   data:
     mongodb:
-      uri: mongodb://localhost:27017/db-sales
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: root
+      password: example
+      database: sboot-db_sales
 
 api-sales:
   client:
