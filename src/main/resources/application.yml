@@ -1,10 +1,12 @@
 spring:
   application:
     name: Sales API
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/db-sales
 
 api-sales:
   client:
     sales:
       url: http://localhost:8082/sales
-
 
